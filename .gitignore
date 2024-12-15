@@ -1,0 +1,4 @@
+__pycache__/
+*.ipynb
+prompts/basic_description.json
+*.log
