@@ -1,0 +1,1861 @@
+Path: /hello
+Methods: ['GET']
+Parameters: []
+
+Generated Documentation:
+# /hello API Endpoint
+
+## GET /hello
+
+This endpoint is used to retrieve a simple greeting message from the server.
+
+### Request
+
+#### Method
+
+`GET`
+
+#### URL
+
+`/hello`
+
+#### Parameters
+
+This endpoint does not require any parameters.
+
+### Response
+
+The response will be a greeting message from the server.
+
+#### Success Response
+
+- Code: `200 OK`
+- Content: 
+```
+{
+    "message": "Hello, World!"
+}
+```
+
+#### Error Response
+
+- Code: `404 Not Found`
+- Content: 
+```
+{
+    "error": "Resource not found"
+}
+```
+
+### Example
+
+#### Request
+
+```
+GET /hello
+```
+
+#### Response
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "message": "Hello, World!"
+}
+```
+
+### Notes
+
+- This endpoint does not require any authentication.
+- This endpoint does not support any query parameters.
+- The response message may vary depending on the server configuration.
+--------------------------------------------------------------------------------
+Path: /hello
+Methods: ['GET']
+Parameters: []
+
+Generated Documentation:
+# API Documentation
+
+## Endpoint: /hello
+
+This document provides detailed information about the `/hello` endpoint of our API. This endpoint supports the `GET` method.
+
+### HTTP Method: GET
+
+The `GET` method is used to retrieve a greeting message from the server.
+
+#### Request
+
+##### URL
+
+```
+https://api.example.com/hello
+```
+
+##### Parameters
+
+This endpoint does not require any parameters.
+
+#### Response
+
+The response from the server will be a JSON object containing a greeting message.
+
+##### Response Object
+
+| Field | Type | Description |
+| --- | --- | --- |
+| message | String | The greeting message from the server. |
+
+##### Example Response
+
+```json
+{
+    "message": "Hello, World!"
+}
+```
+
+#### Error Handling
+
+In case of an error, the server will return a JSON object containing an error message.
+
+##### Error Response Object
+
+| Field | Type | Description |
+| --- | --- | --- |
+| error | String | The error message from the server. |
+
+##### Example Error Response
+
+```json
+{
+    "error": "An unexpected error occurred."
+}
+```
+
+#### Status Codes
+
+The following status codes can be returned by the server:
+
+| Status Code | Description |
+| --- | --- |
+| 200 | The request was successful and the greeting message is returned in the response. |
+| 500 | An unexpected error occurred on the server. |
+
+### Summary
+
+The `/hello` endpoint is a simple API endpoint that returns a greeting message. It does not require any parameters and supports the `GET` method. The response from the server is a JSON object containing the greeting message. In case of an error, the server will return a JSON object with an error message and a corresponding status code.
+--------------------------------------------------------------------------------
+Path: /hello
+Methods: ['GET']
+Parameters: []
+
+Generated Documentation:
+# API Documentation for /hello Endpoint
+
+## 1. Endpoint Description
+
+The `/hello` endpoint is a simple API endpoint designed to test the connectivity and responsiveness of the server. It does not require any parameters and returns a basic greeting message when accessed. This endpoint is particularly useful for initial setup, troubleshooting, and ensuring that the server is up and running.
+
+## 2. Request Structure
+
+### HTTP Method
+
+- `GET`
+
+### Endpoint Path
+
+- `/hello`
+
+### Parameters
+
+This endpoint does not require any parameters.
+
+### Sample Request
+
+A sample request to the `/hello` endpoint using curl would look like this:
+
+```bash
+curl -X GET https://your-api-domain.com/hello
+```
+
+## 3. Response Structure
+
+The `/hello` endpoint returns a JSON object containing a single field, `message`.
+
+### Fields
+
+- `message` (string): A greeting message from the server.
+
+### Example Response
+
+Here is an example of a successful response from the `/hello` endpoint:
+
+```json
+{
+    "message": "Hello, world!"
+}
+```
+
+## 4. Error Handling
+
+Since the `/hello` endpoint does not require any parameters, it is unlikely to return any errors related to user input. However, there are a few system-level errors that you might encounter:
+
+- `404 Not Found`: This error means that the server could not find the requested endpoint. If you see this error, double-check the endpoint path and make sure it is `/hello`.
+
+- `500 Internal Server Error`: This error indicates that something went wrong on the server's end. If you encounter this error, it is likely not due to your request, and you should try again later.
+
+## 5. Use Case Example
+
+Let's say you're setting up a new application and you want to make sure that you've configured your connection to the server correctly. You could use the `/hello` endpoint to test this.
+
+Here's how you might do that in Python using the `requests` library:
+
+```python
+import requests
+
+response = requests.get('https://your-api-domain.com/hello')
+
+if response.status_code == 200:
+    print('Successfully connected to the server!')
+    print('Server says:', response.json()['message'])
+else:
+    print('Failed to connect to the server.')
+```
+
+In this example, we send a GET request to the `/hello` endpoint and then check the status code of the response. If the status code is 200, that means our request was successful, and we print out the greeting message from the server. If the status code is anything else, we print out a failure message.
+--------------------------------------------------------------------------------
+Path: /items/{item_id}
+Methods: ['GET']
+Parameters: ['item_id']
+
+Generated Documentation:
+# API Documentation
+
+## Endpoint: /items/{item_id}
+
+This endpoint is used to retrieve information about a specific item in the system.
+
+---
+
+### Method: GET
+
+Retrieves the details of a specific item.
+
+#### Parameters:
+
+- `item_id` (required): The unique identifier of the item. This is a path parameter.
+
+#### Response:
+
+A successful response returns a JSON object containing the details of the item.
+
+##### Example:
+
+```json
+{
+  "item_id": "123",
+  "name": "Item Name",
+  "description": "Item Description",
+  "price": 100.00,
+  "availability": "In Stock"
+}
+```
+
+##### Response Properties:
+
+- `item_id`: The unique identifier of the item.
+- `name`: The name of the item.
+- `description`: A brief description of the item.
+- `price`: The price of the item.
+- `availability`: The availability status of the item.
+
+#### Error Responses:
+
+- `404 Not Found`: If the `item_id` does not exist in the system, the API will return a 404 status code with a message indicating that the item was not found.
+
+##### Example:
+
+```json
+{
+  "error": "Item not found"
+}
+```
+
+#### Usage:
+
+To use this endpoint, make a GET request to `/items/{item_id}` where `{item_id}` is the unique identifier of the item you want to retrieve. For example, to retrieve the item with an `item_id` of 123, you would make a GET request to `/items/123`.
+--------------------------------------------------------------------------------
+Path: /items/{item_id}
+Methods: ['GET']
+Parameters: ['item_id']
+
+Generated Documentation:
+# API Documentation
+
+## Endpoint: /items/{item_id}
+
+This endpoint is used to retrieve information about a specific item in the database using its unique identifier, `item_id`.
+
+### HTTP Method: GET
+
+The GET method is used to retrieve and request data from a specified resource in a server.
+
+#### Path Parameters:
+
+- `item_id` (required): The unique identifier of the item. This is a string parameter.
+
+#### Response:
+
+The response will be a JSON object containing the details of the item.
+
+##### Response Object:
+
+- `item_id`: The unique identifier of the item.
+- `name`: The name of the item.
+- `description`: A brief description of the item.
+- `price`: The price of the item.
+- `availability`: The availability status of the item.
+
+##### Example Response:
+
+```json
+{
+    "item_id": "123",
+    "name": "Item Name",
+    "description": "This is a sample item",
+    "price": 100.00,
+    "availability": "In Stock"
+}
+```
+
+#### Error Response:
+
+If the `item_id` does not exist in the database, the server will return a 404 error with a message indicating that the item was not found.
+
+##### Example Error Response:
+
+```json
+{
+    "error": "Item not found"
+}
+```
+
+#### Usage:
+
+To use this endpoint, make a GET request to `/items/{item_id}`, replacing `{item_id}` with the ID of the item you want to retrieve.
+
+##### Example Request:
+
+```http request
+GET /items/123
+```
+
+This will return the details of the item with the ID `123`.
+--------------------------------------------------------------------------------
+Path: /items/{item_id}
+Methods: ['GET']
+Parameters: ['item_id']
+
+Generated Documentation:
+# API Documentation for /items/{item_id} Endpoint
+
+## 1. Endpoint Description
+
+The `/items/{item_id}` endpoint is designed to retrieve detailed information about a specific item in the system. The item is identified by its unique `item_id`. This endpoint only supports the `GET` HTTP method.
+
+## 2. Request Structure
+
+### HTTP Method
+
+`GET`
+
+### Endpoint Path
+
+`/items/{item_id}`
+
+### Parameters
+
+- `item_id` (required): A unique identifier for the item. This should be included in the path of the request. The `item_id` is a string and should not exceed 255 characters.
+
+### Sample Request
+
+```
+GET /items/12345
+```
+
+## 3. Response Structure
+
+The response will be a JSON object containing detailed information about the item. The fields in the response include:
+
+- `item_id`: The unique identifier for the item. This is a string.
+- `name`: The name of the item. This is a string.
+- `description`: A detailed description of the item. This is a string.
+- `price`: The price of the item. This is a number.
+- `availability`: The availability status of the item. This is a boolean, where `true` indicates that the item is available and `false` indicates that it is not.
+
+### Sample Response
+
+```json
+{
+    "item_id": "12345",
+    "name": "Sample Item",
+    "description": "This is a sample item.",
+    "price": 19.99,
+    "availability": true
+}
+```
+
+## 4. Error Handling
+
+The following error codes may be returned by the endpoint:
+
+- `400 Bad Request`: This means that the `item_id` was not provided or was not in the correct format. Check that the `item_id` is included in the path and is a string of no more than 255 characters.
+- `404 Not Found`: This means that an item with the provided `item_id` could not be found. Check that the `item_id` is correct.
+- `500 Internal Server Error`: This means that an error occurred on the server. Try the request again later.
+
+## 5. Use Case Example
+
+Suppose you are developing an e-commerce application and you want to display detailed information about a product when a user clicks on it. You would use the `/items/{item_id}` endpoint to retrieve this information.
+
+Here is an example of how you might implement this in JavaScript using the `fetch` API:
+
+```javascript
+fetch('/items/12345')
+    .then(response => response.json())
+    .then(item => {
+        console.log(`Item ID: ${item.item_id}`);
+        console.log(`Name: ${item.name}`);
+        console.log(`Description: ${item.description}`);
+        console.log(`Price: ${item.price}`);
+        console.log(`Availability: ${item.availability}`);
+    })
+    .catch(error => console.error('Error:', error));
+```
+
+In this example, the `fetch` function is used to send a `GET` request to the `/items/12345` endpoint. The response is then parsed as JSON and the details of the item are logged to the console. If an error occurs, it is logged to the console.
+--------------------------------------------------------------------------------
+Path: /items/
+Methods: ['POST']
+Parameters: []
+
+Generated Documentation:
+# Items API
+
+## POST /items/
+
+This endpoint is used to create a new item in the system.
+
+### HTTP Request
+
+`POST https://api.example.com/items/`
+
+### Request Body
+
+The request body should contain a JSON object with the details of the item to be created. The exact structure of this object will depend on the specific requirements of your application, but it might look something like this:
+
+```json
+{
+  "name": "Item Name",
+  "description": "Item Description",
+  "price": 100.00,
+  "category": "Item Category"
+}
+```
+
+### Response
+
+If the item is successfully created, the server will return a HTTP status code of `201 Created`. The body of the response will contain a JSON object with the details of the created item, including its unique ID.
+
+```json
+{
+  "id": 1,
+  "name": "Item Name",
+  "description": "Item Description",
+  "price": 100.00,
+  "category": "Item Category"
+}
+```
+
+If there is an error with the request, such as missing required fields in the request body, the server will return a HTTP status code of `400 Bad Request`, along with a message describing the error.
+
+### Error Codes
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| 201 Created      | The item was successfully created. |
+| 400 Bad Request  | There was a problem with the request. The response body will contain more details about the error. |
+
+### Example
+
+Here is an example of how to use this endpoint with curl:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Item Name", "description":"Item Description", "price":100.00, "category":"Item Category"}' https://api.example.com/items/
+```
+--------------------------------------------------------------------------------
+Path: /items/
+Methods: ['POST']
+Parameters: []
+
+Generated Documentation:
+# API Documentation
+
+## Endpoint: /items/
+
+This endpoint is used to create a new item in the database. The method used for this endpoint is POST.
+
+### HTTP Method: POST
+
+The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.
+
+#### Request
+
+##### URL
+
+```
+POST /items/
+```
+
+##### Body
+
+The body of the request should contain a JSON object that describes the new item. The exact structure of this object will depend on the specific requirements of your application, but here is a basic example:
+
+```json
+{
+  "name": "Item Name",
+  "description": "Item Description",
+  "price": 100.00
+}
+```
+
+#### Response
+
+##### Status Codes
+
+The server will respond with one of the following HTTP status codes:
+
+- `201 Created`: The request was successful, and a new item was created as a result. The response body will include a JSON object with the details of the new item.
+- `400 Bad Request`: The server could not understand the request due to invalid syntax.
+- `500 Internal Server Error`: The server has encountered a situation it doesn't know how to handle.
+
+##### Body
+
+The body of the response will be a JSON object that includes the details of the new item. Here is an example:
+
+```json
+{
+  "id": 1,
+  "name": "Item Name",
+  "description": "Item Description",
+  "price": 100.00
+}
+```
+
+### Example
+
+Here is an example of how to use the POST /items/ endpoint:
+
+#### Request
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Item Name", "description":"Item Description", "price":100.00}' http://localhost:8000/items/
+```
+
+#### Response
+
+```json
+{
+  "id": 1,
+  "name": "Item Name",
+  "description": "Item Description",
+  "price": 100.00
+}
+```
+
+### Error Handling
+
+If there is an error with the request, the server will respond with an appropriate HTTP status code and a message describing the error. For example:
+
+```json
+{
+  "error": "Invalid request body: missing 'name' field"
+}
+```
+
+### Security Considerations
+
+Depending on the requirements of your application, you may need to include security measures such as authentication or authorization. For example, you might require a valid API key in the header of the request.
+--------------------------------------------------------------------------------
+Path: /items/
+Methods: ['POST']
+Parameters: []
+
+Generated Documentation:
+# API Documentation for /items/ Endpoint
+
+## 1. Endpoint Description
+
+The `/items/` endpoint is designed to allow users to add new items to the database. This endpoint only supports the HTTP POST method, which is used to send data to be processed to a specified resource.
+
+## 2. Request Structure
+
+### HTTP Method
+
+- POST
+
+### Endpoint Path
+
+- /items/
+
+### Parameters
+
+This endpoint does not require any parameters.
+
+### Request Payload
+
+The request payload should be a JSON object that includes the following fields:
+
+- `name` (string, required): The name of the item.
+- `description` (string, optional): A brief description of the item.
+- `price` (number, required): The price of the item.
+- `quantity` (integer, required): The quantity of the item in stock.
+
+#### Sample Request Payload
+
+```json
+{
+    "name": "Sample Item",
+    "description": "This is a sample item",
+    "price": 19.99,
+    "quantity": 100
+}
+```
+
+## 3. Response Structure
+
+Upon successful creation of the item, the server will return a JSON object with the following fields:
+
+- `id` (integer): The unique identifier of the item.
+- `name` (string): The name of the item.
+- `description` (string): The description of the item.
+- `price` (number): The price of the item.
+- `quantity` (integer): The quantity of the item in stock.
+
+#### Sample Response
+
+```json
+{
+    "id": 1,
+    "name": "Sample Item",
+    "description": "This is a sample item",
+    "price": 19.99,
+    "quantity": 100
+}
+```
+
+## 4. Error Handling
+
+The following error codes may be returned by the server:
+
+- `400 Bad Request`: This means that the server could not understand the request due to invalid syntax. This could occur if required fields are missing from the request payload or if the data types do not match the expected types.
+- `500 Internal Server Error`: This means that the server encountered an unexpected condition that prevented it from fulfilling the request.
+
+## 5. Use Case Example
+
+Let's say you want to add a new item called "Blue Pen" to the database. The pen costs $1.50 and there are 200 in stock. Here's how you would do it:
+
+```json
+POST /items/
+{
+    "name": "Blue Pen",
+    "description": "A pen with blue ink",
+    "price": 1.50,
+    "quantity": 200
+}
+```
+
+After sending this request, you should receive a response similar to the following:
+
+```json
+{
+    "id": 2,
+    "name": "Blue Pen",
+    "description": "A pen with blue ink",
+    "price": 1.50,
+    "quantity": 200
+}
+```
+
+This means that the item was successfully created and added to the database.
+--------------------------------------------------------------------------------
+Path: /items/{item_id}
+Methods: ['PUT']
+Parameters: ['item_id']
+
+Generated Documentation:
+# API Documentation
+
+## Endpoint: /items/{item_id}
+
+This endpoint is used to update the details of an existing item in the database.
+
+---
+
+### Method: PUT
+
+Updates an existing item with the specified `item_id`.
+
+#### Parameters:
+
+- `item_id` (path parameter, required): The unique identifier of the item to be updated. This is a string parameter.
+
+#### Request Body:
+
+The request body should contain a JSON object with the updated details of the item. The exact structure of this object will depend on the specific fields of the item in your database.
+
+#### Responses:
+
+- `200 OK`: The item was successfully updated. The response body will contain a JSON object with the updated details of the item.
+- `400 Bad Request`: The request was malformed. This could be due to a missing or invalid `item_id`, or missing/invalid fields in the request body.
+- `404 Not Found`: No item with the specified `item_id` was found.
+- `500 Internal Server Error`: An error occurred on the server.
+
+#### Example:
+
+**Request:**
+
+```http
+PUT /items/12345 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Updated Item",
+  "description": "This is an updated description of the item",
+  "price": 99.99
+}
+```
+
+**Response:**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "item_id": "12345",
+  "name": "Updated Item",
+  "description": "This is an updated description of the item",
+  "price": 99.99
+}
+```
+--------------------------------------------------------------------------------
+Path: /items/{item_id}
+Methods: ['PUT']
+Parameters: ['item_id']
+
+Generated Documentation:
+# API Documentation
+
+## Endpoint: /items/{item_id}
+
+This endpoint is used to update the details of an existing item in the database. The item is identified by its unique `item_id`.
+
+### HTTP Method: PUT
+
+The `PUT` method is used to update an existing resource with new data. In this case, it is used to update the details of an item.
+
+#### Path Parameters
+
+- `item_id` (required): The unique identifier of the item. This is a string and should be included in the URL.
+
+#### Request Body
+
+The request body should contain a JSON object with the updated details of the item. The exact structure of this object will depend on the specific fields of the item that are being updated. 
+
+Example:
+
+```json
+{
+  "name": "Updated Item Name",
+  "description": "Updated Description",
+  "price": 100.00
+}
+```
+
+#### Responses
+
+##### 200 OK
+
+If the item is successfully updated, the server will return a `200 OK` status code, along with a JSON object containing the updated details of the item.
+
+Example:
+
+```json
+{
+  "item_id": "123",
+  "name": "Updated Item Name",
+  "description": "Updated Description",
+  "price": 100.00
+}
+```
+
+##### 400 Bad Request
+
+If the request is malformed (for example, if the request body does not contain a valid JSON object), the server will return a `400 Bad Request` status code.
+
+##### 404 Not Found
+
+If no item with the specified `item_id` exists, the server will return a `404 Not Found` status code.
+
+#### Error Messages
+
+In case of an error, a JSON object will be returned with the following structure:
+
+```json
+{
+  "error": "Error message"
+}
+```
+
+The "error" field will contain a string with a description of the error that occurred.
+
+#### Notes
+
+- The `PUT` method is idempotent. This means that making the same `PUT` request multiple times will always result in the same state for the item.
+- The `PUT` method requires the entire item data to be sent in the request. If only a part of the item data is sent, the missing fields will be set to their default values.
+--------------------------------------------------------------------------------
+Path: /items/{item_id}
+Methods: ['PUT']
+Parameters: ['item_id']
+
+Generated Documentation:
+# API Documentation for /items/{item_id} Endpoint
+
+## 1. Endpoint Description
+
+The `/items/{item_id}` endpoint is designed to update the details of an existing item in the database. The item is identified by its unique `item_id`. This endpoint only supports the `PUT` HTTP method, which is used to update the entire resource.
+
+## 2. Request Structure
+
+### HTTP Method
+
+- `PUT`
+
+### Endpoint Path
+
+- `/items/{item_id}`
+
+### Parameters
+
+- `item_id` (path parameter, required): The unique identifier of the item to be updated. This should be a string or integer.
+
+### Request Payload
+
+The request payload should be a JSON object containing the updated details of the item. The exact structure of this object will depend on the specific fields of the item in your database. Here is a sample request payload:
+
+```json
+{
+  "name": "Updated Item Name",
+  "description": "Updated Description",
+  "price": 99.99,
+  "stock": 100
+}
+```
+
+## 3. Response Structure
+
+Upon successful update, the server will return a `200 OK` status code along with a JSON object containing the updated item details. Here is a sample response:
+
+```json
+{
+  "item_id": "123",
+  "name": "Updated Item Name",
+  "description": "Updated Description",
+  "price": 99.99,
+  "stock": 100
+}
+```
+
+## 4. Error Handling
+
+- `400 Bad Request`: This error occurs if the request payload is not properly formatted or if it contains invalid data. Check your request payload to ensure it matches the required format.
+- `404 Not Found`: This error occurs if there is no item with the provided `item_id` in the database. Check your `item_id` to ensure it is correct.
+- `500 Internal Server Error`: This error indicates that something went wrong on the server's end. If this error persists, please contact the system administrator.
+
+## 5. Use Case Example
+
+Let's say you have an item with `item_id` of `123` and you want to update its name, description, price, and stock. Here is how you can do it:
+
+```http
+PUT /items/123 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Updated Item Name",
+  "description": "Updated Description",
+  "price": 99.99,
+  "stock": 100
+}
+```
+
+After sending this request, you should receive a `200 OK` response with the updated item details:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "item_id": "123",
+  "name": "Updated Item Name",
+  "description": "Updated Description",
+  "price": 99.99,
+  "stock": 100
+}
+```
+
+This indicates that the item was successfully updated.
+--------------------------------------------------------------------------------
+Path: /items/{item_id}
+Methods: ['DELETE']
+Parameters: ['item_id']
+
+Generated Documentation:
+# DELETE /items/{item_id}
+
+This endpoint allows you to delete an item from the database.
+
+## HTTP Method: DELETE
+
+## Path Parameters:
+
+- `item_id` (required): The unique identifier of the item you want to delete.
+
+## Request Example:
+
+```
+DELETE /items/123
+```
+
+## Responses:
+
+### 200 OK
+
+This response indicates that the item was successfully deleted.
+
+#### Response Example:
+
+```json
+{
+    "status": "success",
+    "message": "Item successfully deleted"
+}
+```
+
+### 404 Not Found
+
+This response indicates that the item with the provided `item_id` was not found in the database.
+
+#### Response Example:
+
+```json
+{
+    "status": "error",
+    "message": "Item not found"
+}
+```
+
+### 400 Bad Request
+
+This response indicates that the `item_id` provided in the request was not valid.
+
+#### Response Example:
+
+```json
+{
+    "status": "error",
+    "message": "Invalid item_id"
+}
+```
+
+## Error Handling:
+
+If there is any error during the process, the API will return a response with HTTP status code 500 and a message describing the error.
+
+## Security:
+
+This endpoint requires authentication. Unauthorized access will return a 401 Unauthorized HTTP response.
+
+## Rate Limiting:
+
+This endpoint is subject to rate limiting. If the rate limit is exceeded, the API will return a response with HTTP status code 429.
+--------------------------------------------------------------------------------
+Path: /items/{item_id}
+Methods: ['DELETE']
+Parameters: ['item_id']
+
+Generated Documentation:
+# API Documentation
+
+## Endpoint: /items/{item_id}
+
+This endpoint allows you to delete a specific item from the database using its unique identifier (`item_id`).
+
+### HTTP Method: DELETE
+
+The DELETE method is used to delete a specific item from the database.
+
+#### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| item_id   | integer | **Required**. The unique identifier of the item to be deleted. |
+
+#### Responses
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| 200 | Success. The item has been successfully deleted. |
+| 400 | Bad Request. The request is invalid or malformed. |
+| 404 | Not Found. The item with the specified `item_id` does not exist. |
+| 500 | Internal Server Error. An error occurred on the server. |
+
+#### Example
+
+##### Request
+
+```
+DELETE /items/123
+```
+
+##### Response
+
+```
+200 OK
+{
+  "message": "Item successfully deleted."
+}
+```
+
+#### Error Example
+
+##### Request
+
+```
+DELETE /items/abc
+```
+
+##### Response
+
+```
+400 Bad Request
+{
+  "error": "Invalid item_id. Please provide a valid integer value."
+}
+```
+
+### Notes
+
+- The `item_id` must be an integer. Providing a non-integer value will result in a `400 Bad Request` error.
+- If you attempt to delete an item that does not exist, you will receive a `404 Not Found` error.
+- If an error occurs on the server while processing the request, you will receive a `500 Internal Server Error` response.
+--------------------------------------------------------------------------------
+Path: /items/{item_id}
+Methods: ['DELETE']
+Parameters: ['item_id']
+
+Generated Documentation:
+# API Documentation
+
+## Endpoint Description
+
+This API endpoint is designed to delete a specific item from a database or a collection. The item to be deleted is identified by its unique `item_id`. The endpoint only supports the HTTP DELETE method.
+
+## Request Structure
+
+### HTTP Method
+
+- DELETE
+
+### Endpoint Path
+
+- /items/{item_id}
+
+### Parameters
+
+- `item_id` (required): The unique identifier of the item to be deleted. This is a path parameter and should be included in the endpoint path.
+
+### Sample Request
+
+```
+DELETE /items/12345
+```
+
+In this example, `12345` is the `item_id` of the item to be deleted.
+
+## Response Structure
+
+The response from this endpoint does not contain a body. Instead, the HTTP status code indicates the result of the operation.
+
+- `204 No Content`: The item was successfully deleted. This status code does not imply that the item existed prior to the DELETE request.
+- `404 Not Found`: The `item_id` provided in the request does not exist in the database.
+
+## Error Handling
+
+- `400 Bad Request`: This status code indicates that the request could not be understood by the server, usually due to a malformed `item_id`.
+- `401 Unauthorized`: This status code indicates that the client must authenticate itself to get the requested response.
+- `403 Forbidden`: This status code indicates that the client does not have access rights to the content, i.e., it is unauthorized, so server is rejecting to give proper response.
+- `500 Internal Server Error`: This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
+
+## Use Case Example
+
+Let's say you have an online store and you want to delete an item with `item_id` of `12345` from your inventory. You would send a DELETE request to the `/items/12345` endpoint.
+
+Here's how you might do this using `curl`:
+
+```bash
+curl -X DELETE https://api.yourstore.com/items/12345
+```
+
+If the item is successfully deleted, the server will respond with a `204 No Content` status code. If the `item_id` does not exist, the server will respond with a `404 Not Found` status code.
+--------------------------------------------------------------------------------
+Path: /products/
+Methods: ['GET']
+Parameters: []
+
+Generated Documentation:
+# /products/ API
+
+## Method: GET
+
+This API endpoint is used to retrieve a list of all products.
+
+### Resource URL
+
+`https://<base-url>/products/`
+
+### Parameters
+
+This endpoint does not require any parameters.
+
+### Request Headers
+
+| Header Name | Type | Description |
+| ----------- | ---- | ----------- |
+| Authorization | String | **Required**. The token to authenticate the user. |
+
+### Response
+
+A successful response returns a JSON object containing a list of products. Each product object includes the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| id | Integer | The unique identifier of the product. |
+| name | String | The name of the product. |
+| description | String | A brief description of the product. |
+| price | Float | The price of the product. |
+| category | String | The category to which the product belongs. |
+
+### Example Request
+
+```bash
+curl -X GET 'https://<base-url>/products/' \
+-H 'Authorization: Bearer <your-token>'
+```
+
+### Example Response
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Product 1",
+        "description": "This is product 1",
+        "price": 10.0,
+        "category": "Category 1"
+    },
+    {
+        "id": 2,
+        "name": "Product 2",
+        "description": "This is product 2",
+        "price": 20.0,
+        "category": "Category 2"
+    }
+]
+```
+
+### Error Response
+
+If the request fails, the API will return a JSON object with an error message. For example:
+
+```json
+{
+    "error": "Unauthorized"
+}
+```
+
+This means that the provided token is invalid or missing.
+--------------------------------------------------------------------------------
+Path: /products/
+Methods: ['GET']
+Parameters: []
+
+Generated Documentation:
+# API Documentation
+
+## Endpoint: /products/
+
+This endpoint is used to retrieve a list of all products.
+
+### HTTP Method: GET
+
+The GET method is used to retrieve information from the given server using a given URI. While using GET request, it should only extract data and should have no other effect on the data.
+
+---
+
+## Request
+
+### Parameters
+
+This endpoint does not require any parameters.
+
+### Example Request
+
+```
+GET /products/
+```
+
+---
+
+## Response
+
+The response will be a JSON object containing an array of products. Each product will be represented as a separate object within the array.
+
+### Response Object
+
+- `id` (integer): The unique identifier of the product.
+- `name` (string): The name of the product.
+- `description` (string): A brief description of the product.
+- `price` (float): The price of the product.
+- `category` (string): The category to which the product belongs.
+- `stock` (integer): The number of items in stock for the product.
+
+### Example Response
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Product 1",
+        "description": "This is product 1",
+        "price": 10.99,
+        "category": "Category 1",
+        "stock": 100
+    },
+    {
+        "id": 2,
+        "name": "Product 2",
+        "description": "This is product 2",
+        "price": 20.99,
+        "category": "Category 2",
+        "stock": 50
+    }
+]
+```
+
+---
+
+## Error Handling
+
+In case of an error, the response will be a JSON object containing an `error` key and a string description of the error.
+
+### Example Error Response
+
+```json
+{
+    "error": "Internal Server Error"
+}
+```
+
+---
+
+## Status Codes
+
+The following status codes can be returned by this endpoint:
+
+- `200 OK`: The request was successful and the list of products is in the response.
+- `500 Internal Server Error`: There was a problem with the server fulfilling the request.
+--------------------------------------------------------------------------------
+Path: /products/
+Methods: ['GET']
+Parameters: []
+
+Generated Documentation:
+# API Documentation for /products/ Endpoint
+
+## 1. Endpoint Description
+
+The `/products/` endpoint is designed to retrieve a list of all products available in the system. This endpoint only supports the `GET` HTTP method, which allows users to fetch data without modifying it. The endpoint does not require any parameters, making it straightforward to use even for beginners.
+
+## 2. Request Structure
+
+### HTTP Method
+
+- `GET`
+
+### Endpoint Path
+
+- `/products/`
+
+### Parameters
+
+This endpoint does not require any parameters.
+
+### Sample Request
+
+Since this endpoint does not require any parameters, a sample request would simply be:
+
+```
+GET /products/
+```
+
+## 3. Response Structure
+
+The response from this endpoint will be a JSON array containing objects. Each object represents a product and includes the following fields:
+
+- `id` (integer): The unique identifier of the product.
+- `name` (string): The name of the product.
+- `description` (string): A brief description of the product.
+- `price` (float): The price of the product.
+- `available` (boolean): Indicates whether the product is currently available.
+
+### Example Response
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Product 1",
+        "description": "This is product 1",
+        "price": 19.99,
+        "available": true
+    },
+    {
+        "id": 2,
+        "name": "Product 2",
+        "description": "This is product 2",
+        "price": 29.99,
+        "available": false
+    }
+]
+```
+
+## 4. Error Handling
+
+The `/products/` endpoint may return the following error codes:
+
+- `400 Bad Request`: This means the server could not understand the request due to invalid syntax. However, since this endpoint does not require any parameters, this error is unlikely to occur.
+- `500 Internal Server Error`: This means something has gone wrong on the web server, and the server is unable to specify what exactly the problem is.
+
+## 5. Use Case Example
+
+Suppose you are developing an e-commerce application and you need to display a list of all available products. You can use the `/products/` endpoint to fetch this data. Here's how you might do this using JavaScript and the fetch API:
+
+```javascript
+fetch('https://api.example.com/products/')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+```
+
+This code sends a `GET` request to the `/products/` endpoint, then logs the response data to the console. If there's an error, it logs the error message instead.
+--------------------------------------------------------------------------------
+Path: /register/
+Methods: ['POST']
+Parameters: []
+
+Generated Documentation:
+# Register API
+
+## Endpoint: `/register/`
+
+This API endpoint is used to register a new user in the system.
+
+---
+
+## Method: `POST`
+
+### Description
+
+The `POST` method is used to send data to the server to create a new user. This method is used when you want to send some data to the server.
+
+### Request
+
+#### Body
+
+The request body should contain the user details in JSON format. The required fields are:
+
+- `username`: The username of the new user. It should be a string.
+- `password`: The password for the new user. It should be a string.
+- `email`: The email address of the new user. It should be a valid email address.
+
+Example:
+
+```json
+{
+    "username": "newuser",
+    "password": "password123",
+    "email": "newuser@example.com"
+}
+```
+
+### Response
+
+#### Success
+
+If the user is successfully registered, the server will return a `201 Created` status code along with a JSON object containing the user's details.
+
+Example:
+
+```json
+{
+    "username": "newuser",
+    "email": "newuser@example.com"
+}
+```
+
+#### Error
+
+If there is an error during the registration process, the server will return a `400 Bad Request` status code along with a JSON object containing the error message.
+
+Example:
+
+```json
+{
+    "error": "Username already exists"
+}
+```
+
+### Error Codes
+
+- `400 Bad Request`: The server could not understand the request due to invalid syntax.
+- `409 Conflict`: The request could not be completed due to a conflict with the current state of the target resource. This status code is typically used when the request could not be completed due to a conflict with the current state of the target resource (e.g., a user with that username already exists).
+
+---
+
+## Security
+
+This endpoint requires no authentication. However, the data sent to the server should be encrypted to ensure the security of the user's information.
+--------------------------------------------------------------------------------
+Path: /register/
+Methods: ['POST']
+Parameters: []
+
+Generated Documentation:
+# API Documentation
+
+## Endpoint: /register/
+
+This endpoint is used to register a new user in the system. The only supported method for this endpoint is POST.
+
+### HTTP Method: POST
+
+The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.
+
+#### Request
+
+The POST method requires the following parameters to be sent in the body of the HTTP request in JSON format:
+
+- `username`: (string) The username of the new user. This must be unique across all users.
+- `password`: (string) The password for the new user. This should be a secure, hashed password.
+- `email`: (string) The email address of the new user. This must be a valid email address format.
+
+Example:
+
+```json
+{
+    "username": "newUser",
+    "password": "securePassword",
+    "email": "newUser@example.com"
+}
+```
+
+#### Response
+
+The server will respond with a JSON object containing the following fields:
+
+- `status`: (string) The status of the request. This will be "success" if the user was successfully registered, and "error" otherwise.
+- `message`: (string) A human-readable message describing the result of the request.
+- `user_id`: (integer) The unique ID of the newly registered user. This field will only be present if the registration was successful.
+
+Example:
+
+```json
+{
+    "status": "success",
+    "message": "User registered successfully",
+    "user_id": 12345
+}
+```
+
+#### Error Handling
+
+If there is an error during the registration process, the server will respond with a JSON object containing the following fields:
+
+- `status`: (string) The status of the request. This will always be "error" in the case of an error.
+- `message`: (string) A human-readable message describing the error.
+
+Example:
+
+```json
+{
+    "status": "error",
+    "message": "Username already exists"
+}
+```
+
+#### Status Codes
+
+The server will respond with one of the following HTTP status codes:
+
+- `200 OK`: The request was successful, and the user was registered.
+- `400 Bad Request`: The request was malformed. This is often due to missing a required parameter.
+- `409 Conflict`: The requested username is already in use.
+- `500 Internal Server Error`: There was an error on the server.
+--------------------------------------------------------------------------------
+Path: /register/
+Methods: ['POST']
+Parameters: []
+
+Generated Documentation:
+# API Documentation for /register/ Endpoint
+
+## 1. Endpoint Description
+
+The `/register/` endpoint is designed to allow new users to create an account in the system. This endpoint only supports the HTTP POST method, which is used to send user data to the server. The server then processes this data and creates a new user account if the provided data is valid and meets all the necessary requirements.
+
+## 2. Request Structure
+
+### HTTP Method
+
+- POST
+
+### Endpoint Path
+
+- /register/
+
+### Parameters
+
+This endpoint does not require any parameters.
+
+### Request Payload
+
+The request payload should be a JSON object containing the following fields:
+
+- `username` (string): The desired username for the new account. It must be unique and cannot be an empty string.
+- `password` (string): The desired password for the new account. It must be at least 8 characters long and contain at least one number and one special character.
+- `email` (string): The user's email address. It must be a valid email format.
+
+#### Sample Request Payload
+
+```json
+{
+    "username": "newUser",
+    "password": "password123!",
+    "email": "newuser@example.com"
+}
+```
+
+## 3. Response Structure
+
+Upon successful account creation, the server will respond with a JSON object containing the following fields:
+
+- `status` (string): This will always be "success" for successful account creations.
+- `message` (string): A human-readable message indicating the successful creation of the account.
+- `userId` (string): The unique identifier assigned to the newly created user.
+
+#### Sample Response
+
+```json
+{
+    "status": "success",
+    "message": "Account created successfully",
+    "userId": "12345"
+}
+```
+
+## 4. Error Handling
+
+In case of errors, the server will respond with a JSON object containing the following fields:
+
+- `status` (string): This will always be "error" for error responses.
+- `message` (string): A human-readable message describing the error.
+- `errorCode` (string): A code representing the specific error that occurred.
+
+Possible error codes and their meanings are as follows:
+
+- `ERR_USERNAME_TAKEN`: The provided username is already in use.
+- `ERR_INVALID_EMAIL`: The provided email is not in a valid format.
+- `ERR_WEAK_PASSWORD`: The provided password does not meet the strength requirements.
+
+#### Sample Error Response
+
+```json
+{
+    "status": "error",
+    "message": "The provided username is already in use",
+    "errorCode": "ERR_USERNAME_TAKEN"
+}
+```
+
+## 5. Use Case Example
+
+Let's say you're building a registration form for your website. When a user fills out the form and clicks the "Register" button, you could use JavaScript to send a POST request to the `/register/` endpoint with the user's data.
+
+Here's an example using the `fetch` API:
+
+```javascript
+fetch('/register/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        username: 'newUser',
+        password: 'password123!',
+        email: 'newuser@example.com',
+    }),
+})
+.then(response => response.json())
+.then(data => {
+    if (data.status === 'success') {
+        alert('Account created successfully!');
+    } else {
+        alert('Error: ' + data.message);
+    }
+})
+.catch((error) => {
+    console.error('Error:', error);
+});
+```
+
+In this example, if the account is created successfully, the user will see an alert saying "Account created successfully!". If there's an error, they'll see an alert with the error message.
+--------------------------------------------------------------------------------
+Path: /health/
+Methods: ['GET']
+Parameters: []
+
+Generated Documentation:
+# /health/ API Endpoint
+
+## Method: GET
+
+The `/health/` endpoint is used to check the health status of the application. It does not require any parameters.
+
+### Request
+
+#### Endpoint
+
+```
+GET /health/
+```
+
+#### Parameters
+
+This endpoint does not require any parameters.
+
+### Response
+
+The response from this endpoint will provide the current health status of the application. 
+
+#### Response Body
+
+The response body will return a JSON object with the status of the application. 
+
+Example:
+
+```json
+{
+    "status": "healthy"
+}
+```
+
+In this example, the "status" field indicates the current health status of the application. If the application is running properly, the status will be "healthy". If there are any issues with the application, the status will indicate the problem.
+
+### Error Handling
+
+If there is an error with the request, the API will return an HTTP error code along with a message describing the error.
+
+Example:
+
+```json
+{
+    "error": "Internal Server Error"
+}
+```
+
+In this example, the "error" field provides a description of the error that occurred.
+
+### Summary
+
+The `/health/` endpoint provides a simple way to check the health status of the application. It does not require any parameters and will return a JSON object indicating the current status of the application.
+--------------------------------------------------------------------------------
+Path: /health/
+Methods: ['GET']
+Parameters: []
+
+Generated Documentation:
+# Health Check API
+
+## Endpoint: /health/
+
+This endpoint is used to check the health status of the application. It does not require any parameters and only supports the GET method.
+
+---
+
+## Method: GET
+
+### Description
+
+The GET method for the /health/ endpoint is used to retrieve the health status of the application. It does not require any parameters.
+
+### Request
+
+#### URL
+
+```
+GET /health/
+```
+
+#### Headers
+
+- Content-Type: application/json
+
+#### Parameters
+
+No parameters are required for this endpoint.
+
+### Response
+
+The response will be a JSON object that indicates the health status of the application.
+
+#### Response Codes
+
+- 200 OK: The request was successful and the health status of the application is returned.
+- 500 Internal Server Error: The request was unsuccessful due to an unexpected condition encountered by the server.
+
+#### Response Body
+
+The response body will contain a JSON object with the following properties:
+
+- `status`: A string that indicates the health status of the application. Possible values are "Healthy" and "Unhealthy".
+
+##### Example Response
+
+```json
+{
+    "status": "Healthy"
+}
+```
+
+### Error Handling
+
+In case of an error, the response will be a JSON object with the following properties:
+
+- `error`: A string that describes the error that occurred.
+
+##### Example Error Response
+
+```json
+{
+    "error": "Internal Server Error"
+}
+```
+
+### Notes
+
+- This endpoint is typically used for health checks by load balancers or monitoring tools to ensure the application is running and responding correctly.
+- The endpoint does not require authentication.
+- The endpoint does not modify any data and is safe to be called as frequently as needed.
+--------------------------------------------------------------------------------
+Path: /health/
+Methods: ['GET']
+Parameters: []
+
+Generated Documentation:
+# API Documentation for /health/ Endpoint
+
+## 1. Endpoint Description
+
+The `/health/` endpoint is designed to provide a quick and simple way to check the status of the API server. It is a diagnostic tool that returns information about the current operational state of the server. This endpoint does not require any parameters and is accessible via the `GET` HTTP method. 
+
+## 2. Request Structure
+
+### HTTP Method
+
+- `GET`
+
+### Endpoint Path
+
+- `/health/`
+
+### Parameters
+
+This endpoint does not require any parameters.
+
+### Sample Request
+
+Given that this endpoint does not require any parameters, a sample request would look like this:
+
+```
+GET /health/
+```
+
+## 3. Response Structure
+
+The response from the `/health/` endpoint is a JSON object that contains the following fields:
+
+- `status`: A string that indicates the current status of the server. Possible values are `OK` if the server is running normally, and `DOWN` if the server is not operational.
+- `timestamp`: A string that represents the date and time at which the status was checked. The date and time are in ISO 8601 format.
+
+### Example Response
+
+Here is an example of a successful response:
+
+```json
+{
+    "status": "OK",
+    "timestamp": "2022-03-01T12:00:00Z"
+}
+```
+
+## 4. Error Handling
+
+In general, the `/health/` endpoint should not produce any errors as it does not require any parameters. However, if an error does occur, it will be returned as a JSON object with the following fields:
+
+- `error`: A string that describes the type of error.
+- `message`: A string that provides additional information about the error.
+
+### Example Error Response
+
+```json
+{
+    "error": "Server Error",
+    "message": "An unexpected error occurred. Please try again later."
+}
+```
+
+## 5. Use Case Example
+
+A common use case for the `/health/` endpoint is to periodically check the status of the API server to ensure it is running smoothly. This can be done manually by sending a `GET` request to `/health/`, or it can be automated using a script or a tool like a cron job.
+
+Here is an example of how to use the `/health/` endpoint with the `curl` command-line tool:
+
+```bash
+curl https://api.example.com/health/
+```
+
+This command sends a `GET` request to the `/health/` endpoint and prints the response to the console. If the server is running normally, you should see a response similar to the example response provided above.
+--------------------------------------------------------------------------------
