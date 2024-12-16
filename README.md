@@ -38,7 +38,7 @@ Enter 2 for API-by-API interactive mode.
 Check if the Markdown file is created successfully:
 
 ```
-!cat output_docs/api_docs.md
+cat output_docs/api_docs.md
 ```
 
 --------------------------------------------------------------------------------------------------------------
