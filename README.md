@@ -20,7 +20,7 @@ f.write("OPENAI_API_KEY=your_api_key")
 4. Run the script
    
  ```
-  !python api_doc_gen_using_langchain.py --api_file_path sample_apis.py --output_markdown_path output_docs/api_docs.md
+  python api_doc_gen_using_langchain.py --api_file_path sample_apis.py --output_markdown_path output_docs/api_docs.md
 ```
 
 Replace sample_apis.py (uploaded in your local machine) with your FastAPI file path. 
