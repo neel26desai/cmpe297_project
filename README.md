@@ -3,7 +3,7 @@
 Before running make sure to set `export OPENAI_API_KEY=<YOUR_API_KEY>`
 
 
-#How to use api_doc_gen_using_langhchain.py file 
+# How to use api_doc_gen_using_langhchain.py file 
 
 1. Clone the Repository
 2. Install Requirements:
