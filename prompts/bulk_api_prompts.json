@@ -1,0 +1,3 @@
+{
+    "v1":"You are an expert API documentation specialist. Using the following API file content, generate a comprehensive README file including an overview, endpoints, methods, parameters, and examples: \n\n{api_file_content}"
+}
