@@ -230,15 +230,15 @@ def main():
 if __name__ == "__main__":
     main()
 
-"""To view the content of generated file."""
+# """To view the content of generated file."""
 
-!cat /content/output_docs/api_docs.md
+# !cat /content/output_docs/api_docs.md
 
-!ls /content/
+# !ls /content/
 
-!zip -r /content/output_docs.zip /content/output_docs
+# !zip -r /content/output_docs.zip /content/output_docs
 
-!ls /content/
+# !ls /content/
 
-from google.colab import files
-files.download('/content/output_docs.zip')
+# from google.colab import files
+# files.download('/content/output_docs.zip')
