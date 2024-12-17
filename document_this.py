@@ -1,6 +1,6 @@
 import argparse
 from documentor.bulk_api_doc import BulkAPIDocumentationGenerator
-
+from documentor.api_by_api_doc import APIDocumentationGenerator
 def main():
     # Create argument parser
     parser = argparse.ArgumentParser(description="Generate API documentation using LLMs.")
@@ -44,6 +44,18 @@ def main():
             api_file_path=args.api_file_path,
             output_dir=args.output_dir,
             prompt_version=args.prompt_version
+        )
+
+        # Process and generate documentation
+        generator.process_and_generate_documentation()
+    elif args.mode == 'api_by_api':
+        # Instantiate the documentation generator
+        generator = APIDocumentationGenerator(
+            model=args.model,
+            api_file_path=args.api_file_path,
+            output_dir=args.output_dir,
+            prompt_version=args.prompt_version,
+            framework="fastapi"
         )
 
         # Process and generate documentation
