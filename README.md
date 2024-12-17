@@ -59,13 +59,13 @@ python document_this.py [OPTIONS]
 Generate documentation for the entire API file in bulk:
 
 ```bash
-python cli_tool.py -m bulk -a /path/to/api_file.py -o /path/to/output_dir -md gpt-4o-mini -p v1
+python document_this.py -m bulk -a /path/to/api_file.py -o /path/to/output_dir -md gpt-4o-mini -p v1
 ```
 
 If no options are provided, the tool uses the default values:
 
 ```bash
-python cli_tool.py
+python document_this.py
 ```
 
 #### 2. API-by-API Mode
@@ -73,7 +73,7 @@ python cli_tool.py
 Generate documentation for individual endpoints:
 
 ```bash
-python cli_tool.py -m api_by_api -a /path/to/api_file.py -o /path/to/output_dir -md gpt-4o-mini -p v1
+python document_this.py -m api_by_api -a /path/to/api_file.py -o /path/to/output_dir -md gpt-4o-mini -p v1
 ```
 
 ---
