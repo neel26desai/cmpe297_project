@@ -3,3 +3,4 @@ __pycache__/
 prompts/basic_description.json
 *.log
 .env
+*.DS_Store
