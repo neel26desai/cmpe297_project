@@ -1,5 +1,11 @@
 # cmpe297_project
 
+# Links
+Demo Video: https://youtu.be/UgHSzm7YfIQ
+Presentation: https://docs.google.com/presentation/d/1jRAE47WNAbF6fNPpHN3J9-F4omAiWqJ5ZlQN4L4ZLVw/edit?usp=sharing
+Doc: 
+
+# Instruction for Running
 Before running make sure to set `export OPENAI_API_KEY=<YOUR_API_KEY>`
 
 
