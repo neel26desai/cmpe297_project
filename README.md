@@ -1,11 +1,16 @@
 # cmpe297_project
 
 
-# Links
+
+# Links 
 Demo Video: https://youtu.be/UgHSzm7YfIQ
 
 Presentation: https://docs.google.com/presentation/d/1jRAE47WNAbF6fNPpHN3J9-F4omAiWqJ5ZlQN4L4ZLVw/edit?usp=sharing
 
+# Report and presentation
+
+1. 297-final-report.pdf : the project report
+2. CMPE297_Final_Project.pptx: project presentation
 
 # Instruction for Running
 Before running make sure to set `export OPENAI_API_KEY=<YOUR_API_KEY>`
